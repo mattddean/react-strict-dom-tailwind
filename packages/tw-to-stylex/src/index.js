@@ -110,7 +110,7 @@ const convertToAst = (value: mixed): t.Expression => {
   throw new Error(`Cannot convert value to AST: ${String(value)}`);
 };
 
-const customBabelPlugin = (): PluginObj<> => {
+export const customBabelPlugin = (): PluginObj<> => {
   let count = 0;
 
   let cnMap: { [string]: string } = {};
@@ -192,7 +192,7 @@ const customBabelPlugin = (): PluginObj<> => {
           firstStatement.insertBefore(
             t.importDeclaration(
               [t.importNamespaceSpecifier(stylex)],
-              t.stringLiteral("@stylexjs/stylex")
+              t.stringLiteral("./stylex-shim")
             )
           );
 

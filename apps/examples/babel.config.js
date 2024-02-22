@@ -6,6 +6,7 @@
  */
 
 const stylexPlugin = require('@stylexjs/babel-plugin');
+const { customBabelPlugin } = require('../../packages/tw-to-stylex/lib/index');
 
 function getPlatform(caller) {
   return caller && caller.platform;
@@ -26,7 +27,13 @@ module.exports = function (api) {
   const platform = api.caller(getPlatform);
   const isDev = api.caller(getIsDev);
 
-  const plugins = [];
+  const isFlow = true;
+  const plugins = [
+    ...(isFlow
+      ? ['babel-plugin-syntax-hermes-parser']
+      : [['@babel/syntax-typescript', { isTSX: true }], '@babel/syntax-jsx']),
+    customBabelPlugin()
+  ];
 
   if (platform === 'web') {
     plugins.push([
