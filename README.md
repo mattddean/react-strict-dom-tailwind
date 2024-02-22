@@ -38,6 +38,14 @@ React Native compatibility is a work in progress. Please see [COMPATIBILITY.md](
 
 More details and setup instructions can be found in the [CONTRIBUTING][contributing] guide.
 
+## Tailwind Hacks
+
+Uses a *slightly* modified version of [tw-to-stylex](https://github.com/nmn/tw-to-stylex/tree/main) to transform tailwind to stylex for consumption by react-strict-dom.
+
+https://github.com/mattddean/react-strict-dom-tailwind/commit/8c9812fec67bebf7bec6edc2dce80d7e85e44d14
+
+Some tailwind classes work, others cause the app to crash. Tested only on iOS Simulator.
+
 ## Code of conduct
 
 This project expects all participants to adhere to Meta's OSS [Code of Conduct][code-of-conduct]. Please read the full text so that you can understand what actions will and will not be tolerated.
